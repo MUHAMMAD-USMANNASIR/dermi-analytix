@@ -14,7 +14,8 @@ import datetime
 app = Flask(__name__)
 
 # 1. Load the model globally for speed
-model = tf.keras.models.load_model('skin_model.h5')
+import tf_keras
+model = tf_keras.models.load_model('skin_model.h5', compile=False)
 classes = ['Acne', 'Dark Circles', 'Dryness', 'Pigmentation', 'Wrinkles']
 
 # 2. Clinical Data Mapping
