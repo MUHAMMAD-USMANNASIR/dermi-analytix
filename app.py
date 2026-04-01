@@ -1,21 +1,20 @@
 import os
+# Force TensorFlow to use the legacy Keras
 os.environ["TF_USE_LEGACY_KERAS"] = "1"
 
 from flask import Flask, render_template, request
-# ... rest of your imports
-
-import os
-from flask import Flask, render_template, request
 import tensorflow as tf
+import tf_keras as keras  # Use the legacy package
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import datetime
 
 app = Flask(__name__)
 
-# 1. Load the model globally for speed
-import tf_keras
-model = tf_keras.models.load_model('skin_model.h5', compile=False)
+# Load the model using tf_keras instead of tf.keras
+model = keras.models.load_model('skin_model.h5', compile=False)
+
+# ... (the rest of your classes and routes remain the same)
 classes = ['Acne', 'Dark Circles', 'Dryness', 'Pigmentation', 'Wrinkles']
 
 # 2. Clinical Data Mapping
