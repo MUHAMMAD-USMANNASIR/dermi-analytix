@@ -1,4 +1,10 @@
 import os
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+
+from flask import Flask, render_template, request
+# ... rest of your imports
+
+import os
 from flask import Flask, render_template, request
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
